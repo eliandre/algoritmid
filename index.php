@@ -5,7 +5,7 @@
 <body>
 <script src="https://algorithmia.com/v1/clients/js/algorithmia-0.2.1.js" type="text/javascript"></script>
 
-<h2>Ülesanne 1</h2>
+<h2>Kuupäev ja kellaaeg</h2>
 <b>Siin saab tekstist kuupäeva ja kellaaja välja kuvada.</b><br><br>
 Formaat peab olema ameerikapärane (13th March 2020 7:30pm)<br><br>
 
@@ -26,16 +26,19 @@ Formaat peab olema ameerikapärane (13th March 2020 7:30pm)<br><br>
     };
 </script>
 
-<h2>Ülesanne 2</h2>
+<h2>Numbri arvamine</h2>
+
+<p>
+    Sisesta kasti number vahemikus 1-100.
+</p>
 
 <p>
     <input type="text" name="number" id="number"><br><br>
     <input type="submit" name="sumbit" id="submit" value="Sisesta">
     <input type="submit" name="reload" onclick="location.reload()" value="Uuesti"><br>
 
-    <span id="output">
+    <span id="answer">
     </span><br>
-    <span id="output2"></span>
 
 </p>
 
@@ -47,13 +50,47 @@ Formaat peab olema ameerikapärane (13th March 2020 7:30pm)<br><br>
         let number = document.getElementById("number").value;
 
         if (number > randNr) {
-            document.getElementById('output2').innerHTML = "Arv peab olema väiksem";
+            document.getElementById('answer').innerHTML = "Arv peab olema väiksem";
         } else if (number < randNr) {
-            document.getElementById('output2').innerHTML = "Arv peab olema suurem";
+            document.getElementById('answer').innerHTML = "Arv peab olema suurem";
         } else {
-            document.getElementById('output2').innerHTML = "Arvasid ära!";
+            document.getElementById('answer').innerHTML = "Arvasid ära!";
         }
     }
 </script>
 
+<h2>Fibonacci jada</h2>
+
+<p>
+    Sisesta kasti arv, milleni tahad Fibonacci jada välja printida.
+</p>
+<input type="text" name="fibo" id="fibo"><br><br>
+<input type="submit" name="sumbitFibo" id="submitFibo" value="Sisesta"><br><br>
+<span id="fiboSec"></span>
+
+<script type="text/javascript">
+
+    document.getElementById("submitFibo").onclick = function() {
+        let number = document.getElementById("fibo").value;
+        let value = document.getElementById("fiboSec");
+
+        let n0 = 0;
+        let n1 = 1;
+        let n2;
+        let jada = "0 ";
+
+        for(let i = 0; i < number; i++) {
+            n2 = n0 + n1;
+            n0 = n1;
+            n1 = n2;
+            jada += n0 + " ";
+        }
+        value.innerHTML = jada;
+    }
+
+</script>
+
+<p>
+    <a href="https://github.com/eliandre/algoritmid" target="_blank">Repo link</a>
+</p>
 </body>
