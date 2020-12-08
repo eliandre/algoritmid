@@ -16,7 +16,11 @@ Formaat peab olema ameerikapärane (13th March 2020 7:30pm)<br><br>
 
 <script>
     function sendData() {
+
+        // Loetakse sisse kasutaja poolt sisestatud tekst
         var input = document.getElementById("andmed").value
+
+        // Kood Algorithmia lehelt
         Algorithmia.client("simHd9YXZD/sRRdzCI2aVGlMmF11")
             .algo("PetiteProgrammer/DateExtractor/0.1.0?timeout=300") // timeout is optional
             .pipe(input)
@@ -44,11 +48,15 @@ Formaat peab olema ameerikapärane (13th March 2020 7:30pm)<br><br>
 
 <script type="text/javascript">
 
+    // Genereeritakse suvaline arv vahemikus 1-100
     const randNr = Math.floor(Math.random() * 100 + 1);
 
     document.getElementById("submit").onclick = function () {
+
+        // Loetakse sisse kasutaja poolt sisestatud väärtus
         let number = document.getElementById("number").value;
 
+        // Tingimuslaused kasutaja numbri kontrollimiseks
         if (number > randNr) {
             document.getElementById('answer').innerHTML = "Arv peab olema väiksem";
         } else if (number < randNr) {
@@ -70,21 +78,32 @@ Formaat peab olema ameerikapärane (13th March 2020 7:30pm)<br><br>
 
 <script type="text/javascript">
 
+    // Funktsioon "Sisesta" nupu vajutamiseks
     document.getElementById("submitFibo").onclick = function() {
+
+        // Valib kasutaja poolt sisestatud väärtuse
         let number = document.getElementById("fibo").value;
+
+        // Muutuja innerHTML-i väärtuse lihtsustamiseks
         let value = document.getElementById("fiboSec");
 
+        // Väärtustatakse muutujad jada arvutamiseks
         let n0 = 0;
         let n1 = 1;
         let n2;
+
+        // Vajalik, sest jada esimene number on alati 0
         let jada = "0 ";
 
+        // Tsükkel jada väärtuste arvutamiseks ning muutujasse jada sisestamiseks
         for(let i = 0; i < number; i++) {
             n2 = n0 + n1;
             n0 = n1;
             n1 = n2;
             jada += n0 + " ";
         }
+
+        // Jada väljastamine veebilehele
         value.innerHTML = jada;
     }
 
